@@ -70,6 +70,23 @@
 				</dependencies>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<configuration>
+					<parallel>methods</parallel>
+					<threadCount>10</threadCount>
+					<includes>
+						<include>**/Test*.java</include>
+						<include>**/Test.java</include>
+						<include>**/TestCase.java</include>
+					</includes>
+					<excludes>
+						<exclude>**/*Abstract*Test.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
 				 <!-- Add/update this in tomcat-home/conf/tomcat-users.xml file
 					<role rolename="manager-gui" />
 					<user username="tomcat" password="s3cret" roles="admin,tomcat,manager-gui,manager-script" />
